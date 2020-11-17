@@ -1,9 +1,7 @@
 <template>
   <div id="app">
-    <main>
-      <Header id="Header"></Header>
-      <router-view></router-view>
-    </main>
+    <Header id="Header"></Header>
+    <router-view></router-view>
   </div>
 </template>
 
@@ -29,6 +27,7 @@ export default {
   display: flex;
 }
 #Header{
-  display: block;
+  display: flow-root;
+  max-width: 300px;
 }
 </style>

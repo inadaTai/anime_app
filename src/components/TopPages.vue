@@ -108,6 +108,8 @@ export default {
 <style>
 .top-section{
   white-space: pre-line;
+  margin: auto;
+  max-width: 1980px;
 }
 .anime-name{
   font-weight: bold;
