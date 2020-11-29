@@ -29,16 +29,3 @@ new Vue({
   };
 
   firebase.initializeApp(firebaseConfig);
-  const messaging = firebase.messaging();
-  messaging.usePublicVapidKey("BLJ0H71ZeA6B8GxwCu6CSCtWu17OS3tn9Iq-6ZDbkPL7X4Oei-gpLtmPnsZD1YXTfh7CAmaX3kAhzMIf51SXk8A");
-
-  messaging.requestPermission().then(() => {
-  console.log('Notification permission granted.');
-
-
-  messaging.getToken().then((token) => {
-    console.log(token)
-  })
-}).catch((err) => {
-  console.log('Unable to get permission to notify.', err);
-});
