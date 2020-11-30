@@ -6,6 +6,7 @@ import router from './router'
 import firebase from 'firebase/app'
 import 'firebase/app'
 import 'firebase/firestore'
+import 'firebase/messaging';
 
 Vue.config.productionTip = false
 
