@@ -30,3 +30,6 @@ new Vue({
   };
 
   firebase.initializeApp(firebaseConfig);
+  const messaging = firebase.messaging();
+  messaging.usePublicVapidKey("");
+  
