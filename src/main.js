@@ -57,9 +57,9 @@ self.addEventListener('push', function (event) {
     body: '新しい記事が公開されました。[push]',
     // 通知の右にでる画像
     icon:
-      './img/icons/android-chrome-maskable-192x192.png',
+      '/static/img/icons/android-chrome-maskable-192x192.png',
     // 通知の左にでる画像
-    badge: './img/icons/android-chrome-maskable-192x192.png'
+    badge: '/static/img/icons/android-chrome-maskable-192x192.png'
   }
 
   event.waitUntil(self.registration.showNotification(title, options))
@@ -92,7 +92,7 @@ messaging.onBackgroundMessage(function (payload) {
   const notificationTitle = 'アニメ版(Yama_soft)'
   const notificationOptions = {
     body: 'アニメに関する話題の記事を更新したよ',
-    icon: '/img/icons/fcmlogo.jpeg'
+    icon: '/static/img/icons/fcmlogo.jpeg'
   }
 
   self.registration.showNotification(notificationTitle,
