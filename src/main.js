@@ -34,8 +34,8 @@ new Vue({
   const messaging = firebase.messaging();
   messaging.usePublicVapidKey("BLJ0H71ZeA6B8GxwCu6CSCtWu17OS3tn9Iq-6ZDbkPL7X4Oei-gpLtmPnsZD1YXTfh7CAmaX3kAhzMIf51SXk8A");
   
-messaging.requestPermission().then(() => {
-  console.log('Notification permission granted.')
+  messaging.requestPermission().then(() => {
+    console.log('Notification permission granted.')
   messaging.getToken().then((token) => {
     console.log(token)
   })
@@ -51,19 +51,7 @@ messaging.onMessage((payload) => {
 /**
  * foreground時にメッセージを受け取ると、通知をする。通知の中身はtitleやoptionから設定できる。
  */
-self.addEventListener('push', function (event) {
-  const title = 'アニメ(山ソフト)'
-  const options = {
-    body: '新しい記事が公開されました。[push]',
-    // 通知の右にでる画像
-    icon:
-      '/static/img/icons/android-chrome-maskable-192x192.png',
-    // 通知の左にでる画像
-    badge: '/static/img/icons/android-chrome-maskable-192x192.png'
-  }
 
-  event.waitUntil(self.registration.showNotification(title, options))
-})
 
 /**
    * background時の通知の扱い。ここではconsoleにメッセージを出力した上で、通知を出している。通知の中身はtitleやoptionから設定できる。

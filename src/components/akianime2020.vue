@@ -20,7 +20,7 @@
       <img :src="item.pic" width="300px" height="200px">
 			<a :href="item.url"><p>公式サイト</p></a>
 			<div>※今後実装予定、Push通知とチェックボックス 機能
-        <input type="checkbox" :value="item.title" v-model="item.isChecked" @change="saveCheck">
+        <input type="checkbox" :value="item.title" :v-model="item.isChecked" :change="saveCheck">
         <label>視聴中しているならチェック！</label><br>
         <router-link :to="{ name: 'item', params: { Item_name: item.name }}">{{item.name}}の詳細ページを見る</router-link>
       </div>
