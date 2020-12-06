@@ -15,12 +15,13 @@
   <div class="akianime-discription" v-for="(items, index) in groupedArray" :key="index">
     <li v-for="(item, index) in items" :key="index" class="anime-list">
       <div class="anime-title">{{ item.name }}</div>
+      <h1>{{ item.isChecked }}</h1>
       <div v-show="item.isChecked === false"><img src="@/assets/nowatch.png" width="120px" height="40px"></div>
       <div v-show="item.isChecked === true"><img src="@/assets/watch.png" width="120px" height="40px"></div>
       <img :src="item.pic" width="300px" height="200px">
 			<a :href="item.url"><p>公式サイト</p></a>
-			<div>※今後実装予定、Push通知とチェックボックス 機能
-        <input type="checkbox" :value="item.title" :v-model="item.isChecked" :change="saveCheck">
+			<div>
+        <input type="checkbox" :value="item.title" v-model="item.isChecked" v-on:change="saveCheck">
         <label>視聴中しているならチェック！</label><br>
         <router-link :to="{ name: 'item', params: { Item_name: item.name }}">{{item.name}}の詳細ページを見る</router-link>
       </div>
@@ -38,7 +39,7 @@
 </template>
 
 <script>
-export default {
+export default ({
   name: 'akianime2020',
   	computed: {
 		  remaining: function() {
@@ -62,7 +63,7 @@ export default {
         grouped_array.push(result)
       }
       return grouped_array
-      }
+      } 
 	  },
   data () {
     return {
@@ -100,20 +101,22 @@ export default {
     saveCheck: function() {
       this.saveData();
     },
-    saveData: function(){
-      localStorage.setItem('items', JSON.stringify(this.items));
-    },
-    loadData: function(){
-      this.items = JSON.parse( localStorage.getItem('items') );
-      if( !this.items ){
-        this.items = items;
+    saveData() {
+      let parsed = JSON.stringify(this.items);
+      localStorage.setItem('items', parsed);
+      console.log('保存した。');
+    }
+  },
+  mounted() {
+    if(localStorage.getItem('items')) {
+      try {
+        this.items = JSON.parse(localStorage.getItem('items'));
+      } catch(e) {
+        localStorage.removeItem('items');
       }
-    },
-  },
-  mounted: function(){
-    this.loadData();  
-  },
-}
+    }
+  }
+})
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->

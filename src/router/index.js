@@ -26,7 +26,7 @@ export default new Router({
       component: Event,
     },
     {
-      path: '/InfoPage',
+      path: '/infoPage',
       name: 'InfoPage',
       component: InfoPage,
     }
