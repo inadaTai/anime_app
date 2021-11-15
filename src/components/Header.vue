@@ -1,18 +1,28 @@
 <template>
   <div class="header-section">
     <p class="anime-discription-2020">＜今期アニメリスト＞</p>
-    <a href="#" class="anime-spring">
-      <img src = @/assets/春アニメ.png width="230px" height="140px"> 
+    <a href="/#/haru2021" class="anime-spring">
+    2021年 春アニメ<br>
     </a>
     <a href="#" class="anime-summer">
-      <img src = @/assets/夏アニメ.png width="230px" height="140px"> 
+    2021年 夏アニメ(未設定)<br>
     </a>
     <a href="/#/akianime2020" class="anime-autumn">
-      <img src = @/assets/秋アニメ.png width="230px" height="140px"> 
+    2020年 秋アニメ<br>
     </a>
     <a href="#" class="anime-winter">
-      <img src = @/assets/冬アニメ.png width="230px" height="140px"> 
+    2020年　冬アニメ<br>
     </a>
+    <a href="/#/login" class="anime-winter">
+      <div id="login" >ログイン</div>
+    </a>
+    <a href="/#/signup" class="anime-winter">
+      <div id="signUp" >新規登録</div>
+    </a>
+    <a href="/#/mypage" class="anime-winter">
+      <p>マイページ</p>
+    </a>
+    <button id="signOut" @click="signOut">ログアウト</button>
     <a href="/" class="anime-winter">
       <p>TOPページへ戻る</p>
     </a>
@@ -20,12 +30,21 @@
 </template>
 
 <script>
+import firebase from 'firebase'
+
 export default {
   name: 'Header',
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App'
-    }
+    };
+  },
+    methods: {
+    signOut: function () {
+      firebase.auth().signOut().then(() => {
+        alert('ログアウトしました。')
+        this.$router.push('/login')
+      })
+    },
   }
 }
 </script>

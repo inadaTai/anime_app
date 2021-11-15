@@ -1,9 +1,14 @@
+import '@fortawesome/fontawesome-free/css/all.min.css'
+import 'bootstrap-css-only/css/bootstrap.min.css'
+import 'mdbvue/lib/mdbvue.css'
 // The Vue build version to load with the `import` command
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
+import Vuetify from 'vuetify'
 import App from './App'
 import router from './router'
 import firebase from 'firebase/app'
+
 import 'firebase/app'
 import 'firebase/auth'
 import 'firebase/firestore'
@@ -15,6 +20,7 @@ Vue.config.productionTip = false
 new Vue({
   el: '#app',
   router,
+  vuetify: new Vuetify(),
   template: '<App/>',
   components: { App }
 })
@@ -47,6 +53,37 @@ messaging.onMessage((payload) => {
   console.log('Message received. ', payload)
   // ...
 })
+
+firebase.auth().onAuthStateChanged(function (user) {
+  if (user) {
+    console.log('ログイン');
+    console.log(user);
+    var user_data = user.email; 
+    document.getElementById('signOut').style.display = "table-row";
+    document.getElementById('signUp').style.display = "none";
+    document.getElementById('login').style.display = "none";
+    next()
+  } else {
+    // 認証されていない場合、認証画面へ
+    console.log('未ログイン');
+    document.getElementById('signOut').style.display = "none";
+    document.getElementById('signUp').style.display = "table-row";
+    document.getElementById('login').style.display = "block";
+    next({ name: 'Login' })
+  }
+})
+var user = firebase.auth().currentUser;
+var name, email, photoUrl, uid, emailVerified;
+
+if (user != null) {
+  name = user.displayName;
+  email = user.email;
+  photoUrl = user.photoURL;
+  emailVerified = user.emailVerified;
+  uid = user.uid;  // The user's ID, unique to the Firebase project. Do NOT use
+                   // this value to authenticate with your backend server, if
+                   // you have one. Use User.getToken() instead.
+}
 
 /**
  * foreground時にメッセージを受け取ると、通知をする。通知の中身はtitleやoptionから設定できる。

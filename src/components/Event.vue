@@ -178,6 +178,21 @@ export default {
       , painter: ''
       , painterimg: ''
       },
+      { name: 'iiiあいすくりん',　data: '毎週金曜22時', pic: require("@/assets/haru2021/iii-icecrin.jpg"), isChecked: false, url: "https://iii-icecrin.com/"
+      , discription: "あの光景を、私たちは忘れない。\n \n 「ハッピーアラウンド！」が口癖の愛本りんく。\n 日本に帰国した彼女は、DJ活動が盛んな陽葉学園に転校する。\n そこで目にしたDJライブに感動し、明石真秀・大鳴門むに・渡月 麗を次々と巻き込んで、ついにはDJユニットを結成することに。\n Peaky P-keyやPhoton Maidenなど、学内のDJユニットとも交流しながら、\n りんくたちは大きなステージへと駆け上がっていく……！"
+      , onairs: [{abemaTV: "abemaTV毎週土曜26時30分"}, {Amazon: "Amazonプライム毎週日曜日に配信"}]
+      , painter: ''
+      , painterimg: ''
+      },
+      { name: 'D4DJ First Mix',　data: '毎週金曜22時', pic: require("@/assets/akianime2020/d4j1.png"), isChecked: false, url: "https://anime.d4dj-pj.com/"
+      , discription: "あの光景を、私たちは忘れない。\n \n 「ハッピーアラウンド！」が口癖の愛本りんく。\n 日本に帰国した彼女は、DJ活動が盛んな陽葉学園に転校する。\n そこで目にしたDJライブに感動し、明石真秀・大鳴門むに・渡月 麗を次々と巻き込んで、ついにはDJユニットを結成することに。\n Peaky P-keyやPhoton Maidenなど、学内のDJユニットとも交流しながら、\n りんくたちは大きなステージへと駆け上がっていく……！"
+      , onairs: [{abemaTV: "abemaTV毎週土曜26時30分"}, {Amazon: "Amazonプライム毎週日曜日に配信"}]
+      , painter: ''
+      , painterimg: ''
+      },      
+      
+
+
       ]
     }
   },

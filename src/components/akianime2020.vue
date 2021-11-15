@@ -1,6 +1,6 @@
 <template>
 <div class="anime-section">
-  <h1>2020年度　秋アニメページ</h1>
+  <h1>2020年度　秋アニメページ(終了)</h1>
   <div class="anime-tips">機能用途について
     今期視聴中のアニメはチェックボックスを入れると画像が切り替わって今期視聴中と表示されます。
     たくさん視聴して、視聴中のアニメを増やしていこう！
@@ -15,7 +15,6 @@
   <div class="akianime-discription" v-for="(items, index) in groupedArray" :key="index">
     <li v-for="(item, index) in items" :key="index" class="anime-list">
       <div class="anime-title">{{ item.name }}</div>
-      <h1>{{ item.isChecked }}</h1>
       <div v-show="item.isChecked === false"><img src="@/assets/nowatch.png" width="120px" height="40px"></div>
       <div v-show="item.isChecked === true"><img src="@/assets/watch.png" width="120px" height="40px"></div>
       <img :src="item.pic" width="300px" height="200px">
@@ -27,7 +26,7 @@
       </div>
     </li>
   </div>
-  <h1>今期視聴中アニメリスト一覧</h1>
+  <h1>今期視聴中アニメリスト一覧{{user}}</h1>
   <div v-for="(item, id) in items" :key="id">
     <td><router-link :to = item.id></router-link></td>
     <li v-if="item.isChecked === true" class="anime-title-list">
@@ -44,7 +43,7 @@ export default ({
   	computed: {
 		  remaining: function() {
 			  var count = 0;
-			  var items = this.items;
+        var items = this.items;
 			  var length = items.length;
 			  for(var i = 0; i < length; i++) {
 				if(items[i].isChecked) {
@@ -63,7 +62,7 @@ export default ({
         grouped_array.push(result)
       }
       return grouped_array
-      } 
+      }
 	  },
   data () {
     return {
@@ -92,7 +91,8 @@ export default ({
       { name: '土下座で頼んでみた',　data: '毎週金曜22時', pic: require("@/assets/akianime2020/doge1.png"), isChecked: false, url: "https://dogeza-anime.com/" },
       { name: 'One Room サードシーズン',　data: '毎週金曜22時', pic: require("@/assets/akianime2020/one1.png"), isChecked: false, url: "https://oneroom-anime.com/" },
       { name: 'D4DJ First Mix',　data: '毎週金曜22時', pic: require("@/assets/akianime2020/d4j1.png"), isChecked: false, url: "https://anime.d4dj-pj.com/" },
-      ],
+  
+    ],
       done: false,
       msg: '色々',
     }
