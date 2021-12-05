@@ -190,9 +190,6 @@ export default {
       , painter: ''
       , painterimg: ''
       },      
-      
-
-
       ]
     }
   },
