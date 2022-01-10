@@ -1,6 +1,9 @@
 <template>
   <div class="header-section">
     <p class="anime-discription-2020">＜今期アニメリスト＞</p>
+    <a href="/#/winter2022" class="anime-autumn">
+    2022年 冬アニメ<br>
+    </a>
     <a href="/#/haru2021" class="anime-spring">
     2021年 春アニメ<br>
     </a>

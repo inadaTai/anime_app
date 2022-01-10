@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import TopPages from '@/components/TopPages'
 import akianime2020 from '@/components/akianime2020.vue'
 import haru2021 from '@/components/haru2021.vue'
+import winter2022 from '@/components/winter2022.vue'
 import Event from '@/components/Event.vue'
 import InfoPage from '@/components/InfoPage.vue'
 import Signup from '@/components/Signup.vue'
@@ -28,6 +29,11 @@ export default new Router({
       path: '/haru2021',
       name: 'haru2021',
       component: haru2021,
+    },   
+    {
+      path: '/winter2022',
+      name: 'winter2022',
+      component: winter2022,
     },
     {
       path: '/item/:Item_name',
