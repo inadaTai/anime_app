@@ -65,7 +65,7 @@
 
   <h1>過去のアニメタイトルリスト</h1>
     <div class="anime-link">
-       <button v-on:click="comment">コメントボタン</button>
+       <!-- <button v-on:click="comment">コメントボタン</button> -->
       <p>２０１９年度アニメリスト</p>
       <a href="#">2019年　　春アニメ</a>
       <a href="#">2019年　　夏アニメ</a>
@@ -77,7 +77,7 @@
 </template>
 
 <script>
-import firebase from 'firebase';
+// import firebase from 'firebase';
 
 export default {
   name: 'TopPages',
@@ -103,15 +103,15 @@ export default {
     closeModal2: function(){
       this.showContent2 = false
     },
-    comment: function(){
-        console.log('発火');
-        var database = firebase.database();
-        const name = "anime_name";
-        database.ref(name).push({
-          name: "タイトル",
-          is_checked: true,
-        });
-    },
+    // comment: function(){
+    //     console.log('発火');
+    //     var database = firebase.database();
+    //     const name = "anime_name";
+    //     database.ref(name).push({
+    //       name: "タイトル",
+    //       is_checked: true,
+    //     });
+    // },
   }
 }
 </script>
