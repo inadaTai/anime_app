@@ -68,7 +68,13 @@ export default ({
     return {
       newItemTitle: ''.trim(),
       items: [
-          {name: '明日ちゃんのセーラー服'} ,
+{
+    name: '明日ちゃんのセーラー服',
+    data: '', 
+    // pic: require("@/assets/winter2022/hogehoge.jpg"), 
+    isChecked: false, 
+    url: ""} ,
+
 {
     name: 'あたしゃ川尻こだまだよ～デンジャラスライフハッカーのただれた生活～',
     data: '', 
