@@ -4,6 +4,26 @@
     <img src="@/assets/logo.png" width="740" height="230">
   </div>
   <h1>今期オススメアニメ(2020秋アニメ)</h1>
+
+  <!-- スライダーのメインコンテナの div 要素（必須） -->
+<div class="swiper">
+  <!-- スライドを囲む div 要素（必須） -->
+  <div class="swiper-wrapper">
+    <!-- それぞれのスライドの div 要素（必須） -->
+    <div class="swiper-slide"><img src="images/sample_01.png" alt=""></div>
+    <div class="swiper-slide"><img src="images/sample_02.png" alt=""></div>
+    <div class="swiper-slide"><img src="images/sample_03.png" alt=""></div>
+  </div>
+  <!-- ページネーションの div 要素（省略可能） -->
+  <div class="swiper-pagination"></div>
+ 
+  <!-- ナビゲーションボタンの div 要素（省略可能） -->
+  <div class="swiper-button-prev"></div>
+  <div class="swiper-button-next"></div>
+ 
+  <!-- スクロールバーの div 要素（省略可能） -->
+  <div class="swiper-scrollbar"></div>
+</div>  
   <div>【執筆時点10月28日の情報です（最新話で4〜5話くらいです。）】</div>
   <div class="hot-anime">
     <div class="anime-name">魔女の旅々</div>
@@ -77,6 +97,13 @@
 </template>
 
 <script>
+var mySwiper = new Swiper('.swiper', {
+    navigation: {  //ナビゲーションのオプション（矢印ボタンの要素を指定）
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    }
+});
+
 // import firebase from 'firebase';
 
 export default {
@@ -87,7 +114,7 @@ export default {
       show: false,
       show2: false,
       showContent: false,
-      showContent2: false
+      showContent2: false,   
     }
   },
   methods:{
@@ -102,6 +129,12 @@ export default {
     },
     closeModal2: function(){
       this.showContent2 = false
+    },
+    mySwiper: function() {new Swiper('.swiper', {
+    navigation: {  //ナビゲーションのオプション（矢印ボタンの要素を指定）
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    }})
     },
     // comment: function(){
     //     console.log('発火');
