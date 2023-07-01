@@ -4,7 +4,7 @@
     <img src="@/assets/logo.png" width="740" height="230">
   </div>
   <h1>今期オススメアニメ(2020秋アニメ)</h1>
-
+  <button v-on:click="requestPermission">通知を有効化</button>
   <div>【執筆時点10月28日の情報です（最新話で4〜5話くらいです。）】</div>
   <div class="hot-anime">
     <div class="anime-name">魔女の旅々</div>
@@ -102,6 +102,14 @@ export default {
     closeModal2: function(){
       this.showContent2 = false
     },
+    requestPermission: () => {
+      Notification.requestPermission().then((permission) => {
+        alert(permission);
+        getToken(messaging, {vapidKey: process.env.VUE_APP_FIREBASE_VAPID_KEY}).then((currentToken) => {
+          alert(currentToken);
+        });
+      });
+    }    
   }
 }
 </script>
