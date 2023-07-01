@@ -10,8 +10,8 @@
     <!--[if IE]><link rel="shortcut icon" href="/static/img/icons/favicon.ico"><![endif]-->
     <!-- Add to home screen for Android and modern mobile browsers -->
     <link rel="manifest" href="<%= htmlWebpackPlugin.files.publicPath %>static/manifest.json">
+    <link href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" rel="stylesheet" type="text/css">
     <meta name="theme-color" content="#4DBA87">
-
     <!-- Add to home screen for Safari on iOS -->
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
@@ -25,19 +25,32 @@
         for (var file of chunk.files) {
           if (file.match(/\.(js|css)$/)) { %>
     <link rel="<%= chunk.initial?'preload':'prefetch' %>" href="<%= htmlWebpackPlugin.files.publicPath + file %>" as="<%= file.match(/\.css$/)?'style':'script' %>"><% }}} %>
+  
+    <!-- Pollyfill script -->
+    <script src="https://unpkg.com/core-js-bundle@3.6.1/minified.js"></script>
+    <!-- Live2DCubismCore script -->
+    <script src = "../../../Core/live2dcubismcore.js"></script>
+    <!-- Build script -->
+    <script src = "dist/bundle.js"></script>
+    <!-- しりとり用のスクリプト -->
+    <script src="https://cdn.jsdelivr.net/vue/latest/vue.min.js"></script>
+    <script src="js/kuromoji.js"></script>
+  
   </head>
   <body>
     <noscript>
       This is your fallback content in case JavaScript fails to load.
     </noscript>
-    <div id="app"></div>
+    <div id="app">
+    </div>
     <!-- Todo: only include in production -->
     <%= htmlWebpackPlugin.options.serviceWorkerLoader %>
     <!-- built files will be auto injected -->
   </body>
   <!-- The core Firebase JS SDK is always required and must be listed first -->
 <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-app.js"></script>
-
+<script src="https://www.gstatic.com/firebasejs/8.2.3/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.2.3/firebase-functions.js"></script>
 <!-- TODO: Add SDKs for Firebase products that you want to use
      https://firebase.google.com/docs/web/setup#available-libraries -->
 <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-analytics.js"></script>
@@ -71,4 +84,5 @@
       });
   }
   </script>
+
 </html>

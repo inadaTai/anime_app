@@ -4,6 +4,7 @@
     <img src="@/assets/logo.png" width="740" height="230">
   </div>
   <h1>今期オススメアニメ(2020秋アニメ)</h1>
+  <button v-on:click="requestPermission">通知を有効化</button>
   <div>【執筆時点10月28日の情報です（最新話で4〜5話くらいです。）】</div>
   <div class="hot-anime">
     <div class="anime-name">魔女の旅々</div>
@@ -65,11 +66,12 @@
 
   <h1>過去のアニメタイトルリスト</h1>
     <div class="anime-link">
-    <p>２０１９年度アニメリスト</p>
-    <a href="#">2019年　　春アニメ</a>
-    <a href="#">2019年　　夏アニメ</a>
-    <a href="#">2019年　　秋アニメ</a>
-    <a href="#">2019年　　冬アニメ</a>
+       <!-- <button v-on:click="comment">コメントボタン</button> -->
+      <p>２０１９年度アニメリスト</p>
+      <a href="#">2019年　　春アニメ</a>
+      <a href="#">2019年　　夏アニメ</a>
+      <a href="#">2019年　　秋アニメ</a>
+      <a href="#">2019年　　冬アニメ</a>
   </div>
 </div>
 
@@ -84,7 +86,7 @@ export default {
       show: false,
       show2: false,
       showContent: false,
-      showContent2: false
+      showContent2: false,   
     }
   },
   methods:{
@@ -99,7 +101,15 @@ export default {
     },
     closeModal2: function(){
       this.showContent2 = false
-    }
+    },
+    requestPermission: () => {
+      Notification.requestPermission().then((permission) => {
+        alert(permission);
+        getToken(messaging, {vapidKey: process.env.VUE_APP_FIREBASE_VAPID_KEY}).then((currentToken) => {
+          alert(currentToken);
+        });
+      });
+    }    
   }
 }
 </script>
